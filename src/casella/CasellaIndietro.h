@@ -1,9 +1,4 @@
-/*
- * CasellaIndietro.h
- *
- *  Created on: 09 lug 2018
- *      Author: satis
- */
+
 
 #ifndef CASELLA_CASELLAINDIETRO_H_
 #define CASELLA_CASELLAINDIETRO_H_
@@ -12,10 +7,14 @@
 using namespace std;
 
 class CasellaIndietro: public Casella {
+private:
+	int move;
 public:
-	CasellaIndietro();
-	void effetto(Giocatore *giocatore) override;
-	virtual ~CasellaIndietro();
+	CasellaIndietro(int spostamento);
+	void effetto(GameController * partita, Giocatore *listaGiocatori[])override;
+	int getMove() const;
+	void setMove(int move);
+	void messaggio(Giocatore *giocatore);
 };
 
 #endif /* CASELLA_CASELLAINDIETRO_H_ */

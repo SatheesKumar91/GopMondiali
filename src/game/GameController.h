@@ -1,49 +1,67 @@
-/*
- * GameController.h
- *
- *  Created on: 08 lug 2018
- *      Author: satis
- */
+
 
 #ifndef GAME_GAMECONTROLLER_H_
 #define GAME_GAMECONTROLLER_H_
-#include "../casella/Casella.h"
-#include "../giocatore/Giocatore.h"
+
 #include <iostream>
 #include <ostream>
 #include <string>
 #include <cstring>
 
+#include "../casella/Casella.h"
+#include "../giocatore/Giocatore.h"
+#include "../carta/Carta.h"
+class Casella;
+class Carta;
+
+
 using namespace std;
 
 class GameController {
 
-private:
 	int numeroCaselle;
-	int prob;
-	int probSpecial;
-	int dado;
-	Casella *tabellone [100];
-
-
-	//da rimuovere
-	Casella *tabellone2[100];
+	Casella *tabellone[100];
+	bool pFinita = false;
+	int numeroGiocatori = 0;
+	string nome;
+	int attuale = 0;  //indice del giocatore attuale
+	string esciOtab;
+	typedef Carta* cartaptr;
+	int delay = 1;
 
 public:
 	GameController();
+	cartaptr domandeptr;
+	cartaptr mazzoptr;
 	void messaggioBenvenuto();
 	void creaTabellone();
 	int lanciaDado();
-
-
-	//da rimuovere
-	void stampaTabellone(Casella *tabellone[], int lenght);
-	/*void creaTabelloneVuoto();
-	void stampaTabelloneVuoto(Casella *tabellone[], int lenght);
-	*/
-	void stampaGiocatore(Giocatore *giocatore);
-	void cambiaPosizione(Giocatore *giocatore , int dado, int numeroCaselle);
-	void integritaTabellone(Casella *tabellone, int lenght);
+	void stampaTabellone();
+//	void stampaGiocatore(Giocatore *giocatore);
+	void cambiaPosizione(Giocatore *listaGiocatori[], int pos);
+	void integritaTabellone();
+	void setFinita(bool finita);
+	void stampaPosizioni(Giocatore *listaGiocatori[]);
+	void prossimoGiocatore();
+	void saltaTurno(Giocatore *listaGiocatori[]);
+	void tornaInizio(Giocatore *listaGiocatori[]);
+	void flussoGioco(Giocatore *listaGiocatori[]);
+	void bloccaAvversario(Giocatore *listaGiocatori[]);
+	Giocatore** creaGiocatori();
+	cartaptr creaMazzo();
+	cartaptr mescolaMazzo(cartaptr head, int nc);
+	cartaptr headLast(cartaptr head);
+	cartaptr nodoEsimo(cartaptr head, int n);
+	cartaptr ultimoptr(cartaptr head);
+	cartaptr nodPrec(cartaptr head, cartaptr current);
+	cartaptr pescaCarta (cartaptr head);
+	void eseguiEffetto(Giocatore *listaGiocatori[]);
+	void effettoCarta(cartaptr mazzoptr, Giocatore *listaGiocatori[]);
+	void dimezzaPosizione(Giocatore *listaGiocatori[]);
+	int getNumeroCaselle() const;
+	void vinciPartita(Giocatore *listaGiocatori[]);
+	cartaptr creaMazzoDomande();
+	bool rispostaEsatta();
 };
 
 #endif /* GAME_GAMECONTROLLER_H_ */

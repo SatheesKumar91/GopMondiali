@@ -1,33 +1,26 @@
-/*
- * Casella.h
- *
- *  Created on: 08 lug 2018
- *      Author: satis
- */
 
 #ifndef GAME_CASELLA_H_
 #define GAME_CASELLA_H_
 #include <string>
 #include <cstring>
+
+#include "../game/GameController.h"
 #include "../giocatore/Giocatore.h"
 
+class GameController;
 using namespace std;
-
 
 
 class Casella {
 
 protected:
 
-	int move;
 
 public:
 	Casella();
-	virtual void effetto(Giocatore *giocatore){}
-	string messaggio();
-	int getMove() const;
-	void setMove(int move);
-
+	virtual ~ Casella();
+	virtual void effetto(GameController *partita, Giocatore *listaGiocatori[]){};
+	virtual void messaggio(Giocatore *giocatore){};
 	string nome;
 };
 

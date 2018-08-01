@@ -1,20 +1,17 @@
-/*
- * CasellaSaltaTurno.cpp
- *
- *  Created on: 09 lug 2018
- *      Author: satis
- */
 
 #include "CasellaSaltaTurno.h"
 using namespace std;
 
 CasellaSaltaTurno::CasellaSaltaTurno() {
 
-	nome = "Casella salta turno";
+	nome = "Casella Salta Turno";
 }
 
-void CasellaSaltaTurno::effetto(Giocatore *giocatore){
-
+void CasellaSaltaTurno::effetto(GameController *partita, Giocatore *listaGiocatori[]){
+	partita->saltaTurno(listaGiocatori);
+}
+void CasellaSaltaTurno::messaggio (Giocatore *giocatore){
+	cout<< giocatore->getNome()<< " salterà il prossimo turno!"<< endl;
 }
 
 

@@ -1,16 +1,16 @@
-/*
- * CasellaPescaCarta.cpp
- *
- *  Created on: 09 lug 2018
- *      Author: satis
- */
+
 
 #include "CasellaPescaCarta.h"
 using namespace std;
 
 CasellaPescaCarta::CasellaPescaCarta() {
 
-	nome = "Casella pesca carta";
+	nome = "Casella Pesca Carta";
+}
+
+void CasellaPescaCarta::effetto(GameController *partita, Giocatore *listaGiocatori[]){
+	partita->mazzoptr = partita->pescaCarta(partita->mazzoptr);
+	partita->effettoCarta(partita->mazzoptr, listaGiocatori);
 }
 
 

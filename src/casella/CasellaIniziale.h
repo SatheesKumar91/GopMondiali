@@ -1,9 +1,4 @@
-/*
- * CasellaIniziale.h
- *
- *  Created on: 09 lug 2018
- *      Author: satis
- */
+
 
 #ifndef CASELLA_CASELLAINIZIALE_H_
 #define CASELLA_CASELLAINIZIALE_H_

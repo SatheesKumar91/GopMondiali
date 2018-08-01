@@ -1,9 +1,4 @@
-/*
- * CasellaAvanza.cpp
- *
- *  Created on: 09 lug 2018
- *      Author: satis
- */
+
 
 #include "CasellaAvanza.h"
 using namespace std;
@@ -11,11 +6,12 @@ using namespace std;
 
 CasellaAvanza::CasellaAvanza(int spostamento) {
 	setMove(spostamento);
-	nome = "Casella avanza";
+	nome = "Casella Avanza";
 }
 
-void CasellaAvanza :: effetto(Giocatore *giocatore){
-	giocatore->setPos(giocatore->getPos()+3);
+void CasellaAvanza :: effetto(GameController *partita, Giocatore *listaGiocatori[]){
+	partita->cambiaPosizione(listaGiocatori, getMove());
+	//partita->eseguiEffetto(listaGiocatori);
 
 }
 
@@ -25,6 +21,11 @@ void CasellaAvanza::setMove(int move) {
 
 int CasellaAvanza::getMove() const {
 	return move;
+}
+
+void CasellaAvanza:: messaggio(Giocatore *giocatore){
+	 cout <<  giocatore->getNome() << " avanza di: " << getMove() << " caselle!" << endl;
+
 }
 
 

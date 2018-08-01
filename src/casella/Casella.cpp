@@ -1,9 +1,4 @@
-/*
- * Casella.cpp
- *
- *  Created on: 08 lug 2018
- *      Author: satis
- */
+
 #include "../casella/Casella.h"
 
 #include <string>
@@ -13,14 +8,9 @@ using namespace std;
 
 
 Casella::Casella() {
-	// TODO Auto-generated constructor stub
+
+}
+Casella ::~ Casella(){
 
 }
 
-int Casella::getMove() const {
-	return move;
-}
-
-void Casella::setMove(int move) {
-	this->move = move;
-}

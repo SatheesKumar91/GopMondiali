@@ -1,0 +1,30 @@
+#Prerequisites
+*.d
+
+#compiled object files
+*.slo
+*lo
+*.o
+*.obj
+
+#precompiled headers
+*.gch
+*pch
+
+#compiled dynamic libraries
+*.so
+*.dylib
+*.dll
+
+#fortran module files
+*.mod
+*.smod
+
+#compiled static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+#debug folder
+Debug/

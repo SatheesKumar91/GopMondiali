@@ -1,21 +1,20 @@
-/*
- * CasellaTornaInizio.cpp
- *
- *  Created on: 09 lug 2018
- *      Author: satis
- */
+
 
 #include "CasellaTornaInizio.h"
 using namespace std;
 
 CasellaTornaInizio::CasellaTornaInizio() {
 
-	nome = "Casella torna inizio";
+	nome = "Casella Torna Inizio";
 
 }
 
-void CasellaTornaInizio::effetto(Giocatore *giocatore){
-	giocatore->setPos(0);
+void CasellaTornaInizio::effetto(GameController *partita, Giocatore *listaGiocatori[]){
+	partita->tornaInizio(listaGiocatori);
+}
+
+void CasellaTornaInizio::messaggio(Giocatore *giocatore){
+	cout << "Oh no! Autogol clamoroso "<<  giocatore->getNome() <<  " torna all inizio!" << endl;
 }
 
 

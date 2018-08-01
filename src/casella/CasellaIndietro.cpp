@@ -1,24 +1,28 @@
-/*
- * CasellaIndietro.cpp
- *
- *  Created on: 09 lug 2018
- *      Author: satis
- */
+
 
 #include "CasellaIndietro.h"
 using namespace std;
 
-CasellaIndietro::CasellaIndietro() {
-	// TODO Auto-generated constructor stub
-	nome = "Casella torna indietro";
+CasellaIndietro::CasellaIndietro(int spostamento) {
+	setMove(-spostamento);
+	nome = "Casella Torna Indietro";
+}
+
+void CasellaIndietro :: effetto(GameController *partita, Giocatore *listaGiocatori[]){
+	partita->cambiaPosizione(listaGiocatori, getMove());
 
 }
 
-void CasellaIndietro :: effetto(Giocatore *giocatore){
-	giocatore->setPos(giocatore->getPos()-3);
+int CasellaIndietro::getMove() const {
+	return move;
 }
 
-CasellaIndietro::~CasellaIndietro() {
-	// TODO Auto-generated destructor stub
+void CasellaIndietro::setMove(int move) {
+	this->move = move;
+}
+
+void CasellaIndietro::  messaggio(Giocatore *giocatore){
+	cout<< giocatore->getNome() << " torna indietro di " << -getMove()<<" caselle!" << endl;;
+
 }
 

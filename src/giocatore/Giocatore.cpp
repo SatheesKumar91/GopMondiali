@@ -1,20 +1,11 @@
-/*
- * Giocatore.cpp
- *
- *  Created on: 10 lug 2018
- *      Author: satis
- */
 
 #include "Giocatore.h"
 
-Giocatore::Giocatore() {
-	nome = "";
-	pos = 0;
-}
+
 
 Giocatore::Giocatore(string nome, int pos){
 	this->nome = nome;
-	this->pos =pos;
+	setPos(pos);
 }
 
 const string& Giocatore::getNome() const {
@@ -29,9 +20,14 @@ int Giocatore::getPos() const {
 	return pos;
 }
 
+void Giocatore::setTurnoBloccato(bool turnoBloccato) {
+	this->turnoBloccato = turnoBloccato;
+}
+
 void Giocatore::setPos(int pos) {
 	this->pos = pos;
 }
 
-
-
+bool Giocatore::isTurnoBloccato() const {
+	return turnoBloccato;
+}
